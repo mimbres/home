@@ -21,7 +21,7 @@
     <!-- End Jekyll SEO tag -->
 
     <style>
-           html, body {
+        html, body {
             margin: 0;
             padding: 0;
             height: 100%;
@@ -44,6 +44,29 @@
             100% {
                 background-position: 0% 50%;
             }
+        }
+
+        .outer {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.8); /* Optional: to make the content background semi-transparent */
+            padding: 20px;
+            margin: 20px auto; /* Center the outer div */
+            border-radius: 10px;
+            max-width: 90%; /* Ensure content fits within the viewport */
+            width: calc(100% - 40px); /* Full width with margins considered */
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+            overflow: auto;
+        }
+
+        .inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
         }
     </style>
 </head>
