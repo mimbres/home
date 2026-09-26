@@ -45,9 +45,7 @@
         .button.primary { background: var(--yellow); }
         .button-arrow { font-family: Arial, sans-serif; font-size: 21px; line-height: 1; }
         .hero { background: var(--sky); border-bottom: var(--line); }
-        .nav { display: flex; justify-content: space-between; align-items: center; min-height: 94px; gap: 24px; border-bottom: var(--line); }
-        .brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 16px; font-weight: 700; text-decoration: none; letter-spacing: -0.5px; }
-        .brand-mark { width: 15px; height: 15px; background: var(--pink); border: var(--line); box-shadow: 3px 3px 0 var(--ink); }
+        .nav { display: flex; justify-content: flex-end; align-items: center; min-height: 94px; gap: 24px; border-bottom: var(--line); }
         .nav-links { display: flex; align-items: center; gap: 30px; }
         .nav-links a { display: inline-flex; align-items: center; min-height: 44px; font-family: var(--mono); font-size: 12px; font-weight: 700; text-decoration: none; }
         .nav-links a:hover { text-decoration: underline; }
@@ -117,7 +115,7 @@
         .art-panel text { fill: var(--ink); font-family: var(--mono); font-size: 10px; font-weight: 700; }
         .art-note { font-family: var(--mono); font-size: 10px; line-height: 1.5; }
         .links { background: var(--pink); padding-bottom: 26px; }
-        .links-grid { display: flex; justify-content: space-between; align-items: center; gap: 40px; }
+        .links-grid { display: flex; flex-direction: column; align-items: flex-start; gap: 32px; }
         .links-actions { display: flex; flex-wrap: wrap; gap: 15px; }
         .links .section-title { margin-bottom: 0; }
         .links h2 { font-size: clamp(32px, 3.8vw, 48px); }
@@ -129,7 +127,6 @@
             .hero-grid { gap: 40px; }
             .bio-grid { gap: 44px; grid-template-columns: 0.8fr 1.4fr; }
             .project-copy, .project-art { padding: 28px; }
-            .links-grid { flex-direction: column; align-items: start; }
         }
         @media (max-width: 700px) {
             .wrap { width: calc(100% - 40px); }
@@ -174,10 +171,9 @@
     <a class="skip" href="#main">Skip to content</a>
     <header class="hero" id="top">
         <nav class="nav wrap" aria-label="Main navigation">
-            <a class="brand" href="#top" aria-label="Sungkyun Chang home"><span class="brand-mark" aria-hidden="true"></span>SC.</a>
             <div class="nav-links">
                 <a href="#bio">BIO</a>
-                <a href="#work">WORK</a>
+                <a href="#work">RESEARCH</a>
                 <a href="#links">LINKS</a>
                 <a class="nav-cv" href="sungkyun_chang_cv2026.pdf">CV <span aria-hidden="true">&nbsp;↗</span></a>
             </div>
@@ -231,7 +227,7 @@
         </section>
         <section class="section work" id="work" aria-labelledby="work-title">
             <div class="wrap">
-                <div class="work-heading"><div class="section-title"><span class="label">02 / Portfolio</span><h2 id="work-title">Selected work.</h2></div><p>From understanding sound to making music.<br>Explore the research and try the demos.</p></div>
+                <div class="work-heading"><div class="section-title"><span class="label">02 / Research</span><h2 id="work-title">Selected projects.</h2></div><p>From understanding sound to making music.<br>Explore the research and try the demos.</p></div>
                 <details class="project" name="projects" open>
                     <summary class="project-summary">
                         <div><h3>SpanSynth-Edit</h3><span class="label">MIDI-guided synthesis & editing</span></div>
@@ -421,6 +417,8 @@
                 <div class="links-grid"><div class="section-title"><span class="label">03 / Elsewhere</span><h2 id="links-title">Let’s stay in touch.</h2></div><div class="links-actions">
                     <a class="button" href="sungkyun_chang_cv2026.pdf">CV <span class="button-arrow" aria-hidden="true">↗</span></a>
                     <a class="button" href="https://scholar.google.com/citations?user=UT4zjiMAAAAJ&hl=en">Google Scholar <span class="button-arrow" aria-hidden="true">↗</span></a>
+                    <a class="button" href="https://github.com/mimbres">GitHub <span class="button-arrow" aria-hidden="true">↗</span></a>
+                    <a class="button" href="https://www.linkedin.com/in/mimbres-101">LinkedIn <span class="button-arrow" aria-hidden="true">↗</span></a>
                     <a class="button primary" href="mailto:sungkyun.chang@qmul.ac.uk">Say hello <span class="button-arrow" aria-hidden="true">↗</span></a>
                 </div></div>
                 <footer class="footer label"><span>Sungkyun Chang · ML for music and audio</span><a href="#top">Back to top ↑</a></footer>
