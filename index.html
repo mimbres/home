@@ -1,142 +1,472 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, maximum-scale=2">
-    <link rel="stylesheet" type="text/css" media="screen" href="/home/assets/css/style.css?v=7d2c74fb0ee7a7d685a9f2152280d58e2962d7d3">
-
-    <!-- Begin Jekyll SEO tag v2.7.1 -->
-    <title>Sungkyun Chang | home</title>
-    <meta name="generator" content="Jekyll v3.9.0" />
-    <meta property="og:title" content="Sungkyun Chang" />
-    <meta property="og:locale" content="en_US" />
-    <link rel="canonical" href="https://mimbres.github.io/home/" />
-    <meta property="og:url" content="https://mimbres.github.io/home/" />
-    <meta property="og:site_name" content="home" />
-    <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Sungkyun Chang" />
-    <script type="application/ld+json">
-    {"url":"https://mimbres.github.io/home/","headline":"Sungkyun Chang","@type":"WebSite","name":"home","@context":"https://schema.org"}</script>
-    <!-- End Jekyll SEO tag -->
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sungkyun Chang — ML for music and audio</title>
+    <meta name="description" content="Sungkyun Chang researches machine learning for music and audio. Explore work in music synthesis, editing, transcription, and audio retrieval.">
+    <link rel="canonical" href="https://mimbres.github.io/home/">
+    <meta property="og:title" content="Sungkyun Chang — ML for music and audio">
+    <meta property="og:description" content="Research at the intersection of music, audio, and machine learning. Explore selected projects, demos, and publications.">
+    <meta property="og:url" content="https://mimbres.github.io/home/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mimbres.github.io/home/sungkyun_animation.gif">
+    <meta name="twitter:card" content="summary">
+    <meta name="theme-color" content="#cbe6f5">
     <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: auto; /* Allow scrolling */
-            background: linear-gradient(-45deg, #A8D5E2, #E6E9F0, #4CA1AF, #2C3E50, #A9DEF9, #A8E6CF);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
-            font-family: Arial, sans-serif; /* Use a standard font */
+        :root {
+            --ink: #222524;
+            --sky: #cbe6f5;
+            --cream: #faf5e9;
+            --teal: #83cbc5;
+            --pink: #edc0cf;
+            --yellow: #ffe16b;
+            --line: 2px solid var(--ink);
+            --mono: "Courier New", Courier, monospace;
         }
-
-        @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+        *, *::before, *::after { box-sizing: border-box; }
+        [hidden] { display: none !important; }
+        html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+        body { margin: 0; color: var(--ink); background: var(--cream); font-family: Arial, Helvetica, sans-serif; font-size: 17px; line-height: 1.65; }
+        a { color: inherit; text-underline-offset: 4px; }
+        a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--ink); outline-offset: 6px; }
+        img, svg { display: block; max-width: 100%; }
+        h1, h2, h3, p { margin: 0; }
+        h2 { font-size: clamp(36px, 4.3vw, 56px); line-height: 1.08; letter-spacing: -2px; }
+        h3 { font-size: clamp(28px, 3vw, 40px); line-height: 1.15; letter-spacing: -1.2px; }
+        .wrap { width: min(1160px, calc(100% - 112px)); margin-inline: auto; }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+        .skip { position: absolute; top: -100px; left: 20px; z-index: 5; padding: 10px 18px; background: var(--yellow); border: var(--line); border-radius: 10px; }
+        .skip:focus { top: 16px; }
+        .label { font-family: var(--mono); font-size: 12px; font-weight: 700; line-height: 1.4; letter-spacing: 1.5px; text-transform: uppercase; }
+        .pill { display: inline-flex; align-items: center; gap: 9px; padding: 7px 13px; border: var(--line); border-radius: 999px; background: var(--cream); }
+        .button { display: inline-flex; align-items: center; justify-content: center; gap: 20px; min-height: 48px; padding: 12px 22px; border: var(--line); border-radius: 999px; background: var(--cream); box-shadow: 4px 5px 0 var(--ink); font-size: 13px; font-family: var(--mono); font-weight: 700; text-decoration: none; transition: transform 150ms ease, box-shadow 150ms ease; }
+        .button:hover { transform: translate(2px, 2px); box-shadow: 2px 3px 0 var(--ink); }
+        .button.primary { background: var(--yellow); }
+        .button-arrow { font-family: Arial, sans-serif; font-size: 21px; line-height: 1; }
+        .hero { background: var(--sky); border-bottom: var(--line); }
+        .nav { display: flex; justify-content: space-between; align-items: center; min-height: 94px; gap: 24px; border-bottom: var(--line); }
+        .brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 16px; font-weight: 700; text-decoration: none; letter-spacing: -0.5px; }
+        .brand-mark { width: 15px; height: 15px; background: var(--pink); border: var(--line); box-shadow: 3px 3px 0 var(--ink); }
+        .nav-links { display: flex; align-items: center; gap: 30px; }
+        .nav-links a { display: inline-flex; align-items: center; min-height: 44px; font-family: var(--mono); font-size: 12px; font-weight: 700; text-decoration: none; }
+        .nav-links a:hover { text-decoration: underline; }
+        .nav-links .nav-cv { min-height: 36px; padding: 4px 17px; border: var(--line); border-radius: 999px; background: var(--cream); }
+        .hero-grid { display: grid; grid-template-columns: 1.08fr 1fr; align-items: center; gap: 64px; padding-block: 72px 76px; }
+        .hero-intro > .label { margin-bottom: 26px; }
+        .name { width: 50%; max-width: 255px; margin-bottom: 29px; }
+        .name svg { width: 100%; fill: var(--ink); shape-rendering: crispEdges; }
+        .tagline { font-size: clamp(26px, 3vw, 36px); line-height: 1.2; font-weight: 700; letter-spacing: -1px; }
+        .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 22px; margin-top: 30px; }
+        .text-link { font-family: var(--mono); font-size: 13px; font-weight: 700; padding-block: 10px; }
+        .art-wrap { position: relative; padding-bottom: 20px; }
+        .art-window { border: var(--line); border-radius: 23px; box-shadow: 9px 10px 0 var(--ink); background: #f4fbfb; overflow: hidden; transform: rotate(2deg); }
+        .art-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 20px; background: var(--cream); border-bottom: var(--line); }
+        .art-bar .label { font-size: 10px; letter-spacing: 1px; }
+        .window-dots { display: flex; gap: 5px; }
+        .window-dots i { width: 8px; height: 8px; border: 1.5px solid var(--ink); border-radius: 50%; }
+        .window-dots i:first-child { background: var(--pink); }
+        .window-dots i:nth-child(2) { background: var(--yellow); }
+        .window-dots i:nth-child(3) { background: var(--teal); }
+        .art-window img { width: 100%; height: auto; }
+        .art-caption { padding: 12px 16px; border-top: var(--line); font-family: var(--mono); font-size: 11px; text-align: center; background: var(--cream); }
+        .art-sticker { position: absolute; bottom: -22px; left: -24px; padding: 9px 19px; transform: rotate(-5deg); background: var(--pink); box-shadow: 3px 4px 0 var(--ink); }
+        .spark { position: absolute; top: -37px; right: -20px; width: 53px; height: 53px; }
+        .hero-foot { display: flex; justify-content: flex-end; padding-block: 18px 20px; border-top: var(--line); font-size: 10px; }
+        .section { padding-block: 80px 88px; border-bottom: var(--line); }
+        .section-title { margin-bottom: 24px; }
+        .section-title .label { display: block; margin-bottom: 16px; }
+        .bio { background: var(--cream); }
+        .bio-grid { display: grid; grid-template-columns: 0.8fr 1.4fr; gap: 88px; }
+        .bio-heading p { max-width: 290px; margin-top: 23px; color: #515854; font-size: 16px; }
+        .bio-copy p + p { margin-top: 17px; }
+        .bio-copy a { text-decoration-thickness: 1px; }
+        .interests { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--ink); }
+        .interests ul { list-style: none; padding: 0; margin: 16px 0 0; }
+        .interests li { position: relative; padding-left: 23px; margin-top: 8px; font-size: 15px; }
+        .interests li::before { content: "+"; position: absolute; left: 0; top: -1px; font-family: var(--mono); font-size: 20px; font-weight: 700; }
+        .work { background: var(--teal); }
+        .work-heading { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 38px; }
+        .work-heading .section-title { margin: 0; }
+        .work-heading > p { max-width: 310px; font-size: 15px; line-height: 1.5; }
+        .project { margin-top: 18px; border: var(--line); border-radius: 21px; background: var(--cream); }
+        .project[open] { box-shadow: 6px 7px 0 var(--ink); margin-bottom: 25px; }
+        .project-summary { display: flex; align-items: center; justify-content: space-between; gap: 22px; padding: 24px 32px; border-radius: 19px; list-style: none; cursor: pointer; }
+        .project-summary::-webkit-details-marker { display: none; }
+        .project-summary::marker { content: ""; }
+        .project-summary:hover { background: #f0eadb; }
+        .project-summary:focus-visible { outline-offset: -6px; }
+        .project-summary h3 { font-size: clamp(23px, 2.7vw, 32px); letter-spacing: -1px; }
+        .project-summary .label { display: block; font-size: 10px; letter-spacing: 1px; margin-top: 7px; }
+        .project-toggle { display: grid; place-items: center; flex: 0 0 36px; height: 36px; border: var(--line); border-radius: 50%; background: var(--sky); }
+        .project-toggle::before { content: "+"; font-family: var(--mono); font-size: 25px; line-height: 1; }
+        .project[open] .project-toggle { background: var(--yellow); }
+        .project[open] .project-toggle::before { content: "−"; }
+        .project[open] > .project-summary { border-bottom: var(--line); border-radius: 19px 19px 0 0; }
+        .project-body { display: grid; grid-template-columns: 1fr 1fr; border-radius: 0 0 19px 19px; overflow: hidden; }
+        .project-copy { display: flex; flex-direction: column; justify-content: center; align-items: start; padding: 32px; }
+        .project-copy .pill { background: var(--yellow); font-size: 10px; letter-spacing: 1px; padding: 5px 11px; margin-bottom: 18px; }
+        .project-copy p { margin-bottom: 25px; font-size: 16px; line-height: 1.65; max-width: 390px; }
+        .project-art { display: flex; flex-direction: column; justify-content: center; gap: 15px; padding: 26px 32px; border-left: var(--line); background: #b9d8ec; }
+        .project-art.improv { background: #e2c9dc; }
+        .project-art.transcription { background: #bfdac2; }
+        .project-art.retrieval { background: #cbd3ea; }
+        .project-art > .label { font-size: 10px; letter-spacing: 1px; }
+        .art-panel { width: 100%; max-width: 380px; align-self: center; border: var(--line); border-radius: 12px; background: var(--cream); box-shadow: 4px 5px 0 var(--ink); overflow: hidden; }
+        .art-panel svg { width: 100%; height: auto; }
+        .art-panel text { fill: var(--ink); font-family: var(--mono); font-size: 10px; font-weight: 700; }
+        .art-note { font-family: var(--mono); font-size: 10px; line-height: 1.5; }
+        .links { background: var(--pink); padding-bottom: 26px; }
+        .links-grid { display: flex; justify-content: space-between; align-items: center; gap: 40px; }
+        .links-actions { display: flex; flex-wrap: wrap; gap: 15px; }
+        .links .section-title { margin-bottom: 0; }
+        .links h2 { font-size: clamp(32px, 3.8vw, 48px); }
+        .footer { display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid var(--ink); padding-top: 20px; margin-top: 65px; font-size: 10px; }
+        .footer a { padding: 4px 0; }
+        @media (min-width: 1440px) { .hero-grid { padding-block: 84px 90px; } }
+        @media (max-width: 1000px) {
+            .wrap { width: calc(100% - 64px); }
+            .hero-grid { gap: 40px; }
+            .bio-grid { gap: 44px; grid-template-columns: 0.8fr 1.4fr; }
+            .project-copy, .project-art { padding: 28px; }
+            .links-grid { flex-direction: column; align-items: start; }
         }
-
-        .outer {
-            position: relative;
-            z-index: 1;
-            background: rgba(255, 255, 255, 0.8); /* Optional: to make the content background semi-transparent */
-            padding: 20px;
-            margin: 20px auto; /* Center the outer div */
-            border-radius: 10px;
-            max-width: 90%; /* Ensure content fits within the viewport */
-            width: calc(100% - 40px); /* Full width with margins considered */
-            box-sizing: border-box; /* Include padding and border in element's total width and height */
-            overflow: auto;
+        @media (max-width: 700px) {
+            .wrap { width: calc(100% - 40px); }
+            .nav { min-height: 76px; gap: 14px; }
+            .nav-links { gap: 17px; }
+            .nav-links a { font-size: 11px; }
+            .nav-links .nav-cv { display: none; }
+            .hero-grid { grid-template-columns: 1fr; gap: 58px; padding-block: 46px 52px; }
+            .hero-intro > .label { font-size: 10px; margin-bottom: 23px; }
+            .name { max-width: 235px; margin-bottom: 25px; }
+            .tagline { font-size: 29px; }
+            .hero-actions { gap: 20px; margin-top: 25px; }
+            .art-wrap { width: calc(100% - 20px); max-width: 430px; margin-inline: auto; }
+            .art-sticker { left: -8px; font-size: 10px; }
+            .spark { right: -12px; width: 43px; height: 43px; top: -32px; }
+            .hero-foot { font-size: 9px; letter-spacing: 0.8px; }
+            .hero-foot span:last-child { text-align: right; }
+            .section { padding-block: 52px 58px; }
+            .bio-grid { grid-template-columns: 1fr; gap: 26px; }
+            .bio-heading p { max-width: 100%; margin-top: 16px; }
+            .bio-copy { font-size: 16px; }
+            .work-heading { flex-direction: column; align-items: start; gap: 20px; margin-bottom: 28px; }
+            .work-heading > p { max-width: 100%; }
+            .project-summary { gap: 14px; padding: 22px; }
+            .project-summary .label { font-size: 9px; letter-spacing: .5px; }
+            .project-toggle { flex-basis: 32px; height: 32px; }
+            .project-body { grid-template-columns: 1fr; }
+            .project-copy { padding: 28px 24px 32px; }
+            .project-art { border-left: 0; border-top: var(--line); padding: 28px 24px; }
+            .links-actions { gap: 17px 13px; }
+            .links-actions .button { padding-inline: 16px; font-size: 12px; gap: 13px; }
+            .links { padding-bottom: 22px; }
+            .footer { margin-top: 43px; font-size: 9px; letter-spacing: 0.7px; align-items: center; }
         }
-
-        .inner {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        h1, h5 {
-            text-align: left;
-/*             color: #2C3E50; */
-        }
-
-        h1 {
-            font-size: 2em;
-            padding: 20px 0;
-        }
-
-        h5 {
-            font-size: 1em;
-            padding: 10px 0;
-            font-style: italic;
-        }
-
-        p {
-            font-size: 1em;
-/*             color: #333; */
-        }
-
-        a {
-/*             color: #2C3E50; */
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { transition: none !important; animation: none !important; }
         }
     </style>
 </head>
 <body>
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-<!--         <h1 id="sungkyun-chang">Sungkyun Chang</h1> -->
-        <pre id="sungkyun-chang" style="background-color: transparent; color: inherit; border: none; margin: 0; padding: 0; font-size: 9px; line-height: 1; text-align: left; white-space: pre; overflow: hidden; max-width: 100%;">
-███████╗██╗   ██╗███╗   ██╗ ██████╗ ██╗  ██╗██╗   ██╗██╗   ██╗███╗   ██╗     ██████╗██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ 
-██╔════╝██║   ██║████╗  ██║██╔════╝ ██║ ██╔╝╚██╗ ██╔╝██║   ██║████╗  ██║    ██╔════╝██║  ██║██╔══██╗████╗  ██║██╔════╝ 
-███████╗██║   ██║██╔██╗ ██║██║  ███╗█████╔╝  ╚████╔╝ ██║   ██║██╔██╗ ██║    ██║     ███████║███████║██╔██╗ ██║██║  ███╗
-╚════██║██║   ██║██║╚██╗██║██║   ██║██╔═██╗   ╚██╔╝  ██║   ██║██║╚██╗██║    ██║     ██╔══██║██╔══██║██║╚██╗██║██║   ██║
-███████║╚██████╔╝██║ ╚████║╚██████╔╝██║  ██╗   ██║   ╚██████╔╝██║ ╚████║    ╚██████╗██║  ██║██║  ██║██║ ╚████║╚██████╔╝
-╚══════╝ ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═╝  ╚═══╝     ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝                                                                                                                  
-        </pre>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="hero" id="top">
+        <nav class="nav wrap" aria-label="Main navigation">
+            <a class="brand" href="#top" aria-label="Sungkyun Chang home"><span class="brand-mark" aria-hidden="true"></span>SC.</a>
+            <div class="nav-links">
+                <a href="#bio">BIO</a>
+                <a href="#work">WORK</a>
+                <a href="#links">LINKS</a>
+                <a class="nav-cv" href="sungkyun_chang_cv2026.pdf">CV <span aria-hidden="true">&nbsp;↗</span></a>
+            </div>
+        </nav>
+        <div class="hero-grid wrap">
+            <div class="hero-intro">
+                <p class="label">Research · Music · Audio</p>
+                <h1 class="name" id="sungkyun-chang">
+                    <span class="sr-only">Sungkyun Chang</span>
+                    <svg viewBox="0 0 47 16" aria-hidden="true" focusable="false">
+                <path d="M0 0h1v1h-1z M1 0h1v1h-1z M2 0h1v1h-1z M3 0h1v1h-1z M4 0h1v1h-1z M0 1h1v1h-1z M0 2h1v1h-1z M0 3h1v1h-1z M1 3h1v1h-1z M2 3h1v1h-1z M3 3h1v1h-1z M4 3h1v1h-1z M4 4h1v1h-1z M4 5h1v1h-1z M0 6h1v1h-1z M1 6h1v1h-1z M2 6h1v1h-1z M3 6h1v1h-1z M4 6h1v1h-1z M6 0h1v1h-1z M10 0h1v1h-1z M6 1h1v1h-1z M10 1h1v1h-1z M6 2h1v1h-1z M10 2h1v1h-1z M6 3h1v1h-1z M10 3h1v1h-1z M6 4h1v1h-1z M10 4h1v1h-1z M6 5h1v1h-1z M10 5h1v1h-1z M6 6h1v1h-1z M7 6h1v1h-1z M8 6h1v1h-1z M9 6h1v1h-1z M10 6h1v1h-1z M12 0h1v1h-1z M16 0h1v1h-1z M12 1h1v1h-1z M13 1h1v1h-1z M16 1h1v1h-1z M12 2h1v1h-1z M13 2h1v1h-1z M16 2h1v1h-1z M12 3h1v1h-1z M14 3h1v1h-1z M16 3h1v1h-1z M12 4h1v1h-1z M15 4h1v1h-1z M16 4h1v1h-1z M12 5h1v1h-1z M15 5h1v1h-1z M16 5h1v1h-1z M12 6h1v1h-1z M16 6h1v1h-1z M18 0h1v1h-1z M19 0h1v1h-1z M20 0h1v1h-1z M21 0h1v1h-1z M22 0h1v1h-1z M18 1h1v1h-1z M18 2h1v1h-1z M18 3h1v1h-1z M20 3h1v1h-1z M21 3h1v1h-1z M22 3h1v1h-1z M18 4h1v1h-1z M22 4h1v1h-1z M18 5h1v1h-1z M22 5h1v1h-1z M18 6h1v1h-1z M19 6h1v1h-1z M20 6h1v1h-1z M21 6h1v1h-1z M22 6h1v1h-1z M24 0h1v1h-1z M28 0h1v1h-1z M24 1h1v1h-1z M27 1h1v1h-1z M24 2h1v1h-1z M26 2h1v1h-1z M24 3h1v1h-1z M25 3h1v1h-1z M24 4h1v1h-1z M26 4h1v1h-1z M24 5h1v1h-1z M27 5h1v1h-1z M24 6h1v1h-1z M28 6h1v1h-1z M30 0h1v1h-1z M34 0h1v1h-1z M30 1h1v1h-1z M34 1h1v1h-1z M31 2h1v1h-1z M33 2h1v1h-1z M32 3h1v1h-1z M32 4h1v1h-1z M32 5h1v1h-1z M32 6h1v1h-1z M36 0h1v1h-1z M40 0h1v1h-1z M36 1h1v1h-1z M40 1h1v1h-1z M36 2h1v1h-1z M40 2h1v1h-1z M36 3h1v1h-1z M40 3h1v1h-1z M36 4h1v1h-1z M40 4h1v1h-1z M36 5h1v1h-1z M40 5h1v1h-1z M36 6h1v1h-1z M37 6h1v1h-1z M38 6h1v1h-1z M39 6h1v1h-1z M40 6h1v1h-1z M42 0h1v1h-1z M46 0h1v1h-1z M42 1h1v1h-1z M43 1h1v1h-1z M46 1h1v1h-1z M42 2h1v1h-1z M43 2h1v1h-1z M46 2h1v1h-1z M42 3h1v1h-1z M44 3h1v1h-1z M46 3h1v1h-1z M42 4h1v1h-1z M45 4h1v1h-1z M46 4h1v1h-1z M42 5h1v1h-1z M45 5h1v1h-1z M46 5h1v1h-1z M42 6h1v1h-1z M46 6h1v1h-1z"/>
+                <path d="M0 9h1v1h-1z M1 9h1v1h-1z M2 9h1v1h-1z M3 9h1v1h-1z M4 9h1v1h-1z M0 10h1v1h-1z M0 11h1v1h-1z M0 12h1v1h-1z M0 13h1v1h-1z M0 14h1v1h-1z M0 15h1v1h-1z M1 15h1v1h-1z M2 15h1v1h-1z M3 15h1v1h-1z M4 15h1v1h-1z M6 9h1v1h-1z M10 9h1v1h-1z M6 10h1v1h-1z M10 10h1v1h-1z M6 11h1v1h-1z M10 11h1v1h-1z M6 12h1v1h-1z M7 12h1v1h-1z M8 12h1v1h-1z M9 12h1v1h-1z M10 12h1v1h-1z M6 13h1v1h-1z M10 13h1v1h-1z M6 14h1v1h-1z M10 14h1v1h-1z M6 15h1v1h-1z M10 15h1v1h-1z M13 9h1v1h-1z M14 9h1v1h-1z M15 9h1v1h-1z M12 10h1v1h-1z M16 10h1v1h-1z M12 11h1v1h-1z M16 11h1v1h-1z M12 12h1v1h-1z M13 12h1v1h-1z M14 12h1v1h-1z M15 12h1v1h-1z M16 12h1v1h-1z M12 13h1v1h-1z M16 13h1v1h-1z M12 14h1v1h-1z M16 14h1v1h-1z M12 15h1v1h-1z M16 15h1v1h-1z M18 9h1v1h-1z M22 9h1v1h-1z M18 10h1v1h-1z M19 10h1v1h-1z M22 10h1v1h-1z M18 11h1v1h-1z M19 11h1v1h-1z M22 11h1v1h-1z M18 12h1v1h-1z M20 12h1v1h-1z M22 12h1v1h-1z M18 13h1v1h-1z M21 13h1v1h-1z M22 13h1v1h-1z M18 14h1v1h-1z M21 14h1v1h-1z M22 14h1v1h-1z M18 15h1v1h-1z M22 15h1v1h-1z M24 9h1v1h-1z M25 9h1v1h-1z M26 9h1v1h-1z M27 9h1v1h-1z M28 9h1v1h-1z M24 10h1v1h-1z M24 11h1v1h-1z M24 12h1v1h-1z M26 12h1v1h-1z M27 12h1v1h-1z M28 12h1v1h-1z M24 13h1v1h-1z M28 13h1v1h-1z M24 14h1v1h-1z M28 14h1v1h-1z M24 15h1v1h-1z M25 15h1v1h-1z M26 15h1v1h-1z M27 15h1v1h-1z M28 15h1v1h-1z"/>
+                    </svg>
+                </h1>
+                <p class="tagline">ML for music and audio.</p>
+                <div class="hero-actions">
+                    <a class="button primary" href="#work">Explore my work <span class="button-arrow" aria-hidden="true">↓</span></a>
+                    <a class="text-link" href="#bio">A little about me <span aria-hidden="true">↘</span></a>
+                </div>
+            </div>
+            <div class="art-wrap">
+                <div class="art-window">
+                    <div class="art-bar"><span class="label">Music × AI</span><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
+                    <img id="music-art" src="sungkyun_animation.gif" width="400" height="221" alt="A music machine connected to a miniature ensemble, sending a rainbow of musical notes into the air." fetchpriority="high">
+                    <img id="still-art" src="sungkyun_animation.gif" width="400" height="221" alt="A music machine connected to a miniature ensemble, sending a rainbow of musical notes into the air." hidden>
+                    <div class="art-caption">Listening. Learning. Making.</div>
+                </div>
+                <span class="art-sticker pill label">Generate · Transcribe · Retrieve</span>
+                <svg class="spark" viewBox="0 0 56 56" aria-hidden="true"><path d="M28 2L33 20L49 9L39 25L55 29L38 34L48 49L32 40L27 55L22 38L7 48L17 32L2 27L19 22L9 7L24 17Z" fill="#ffe16b" stroke="#222524" stroke-width="2" stroke-linejoin="round"/></svg>
+            </div>
+        </div>
+        <div class="hero-foot wrap label"><span>Scroll to explore <span aria-hidden="true">↓</span></span></div>
+    </header>
+    <main id="main">
+        <section class="section bio" id="bio" aria-labelledby="bio-title">
+            <div class="bio-grid wrap">
+                <div class="bio-heading">
+                    <div class="section-title"><span class="label">01 / Bio</span><h2 id="bio-title">A little<br>about me.</h2></div>
+                    <p>Exploring how machines can understand music and support musical creativity.</p>
+                </div>
+                <div class="bio-copy">
+                    <p>I am a doctoral researcher working on the <strong>Automatic Music Performance Assessment & Feedback</strong> project at <a href="https://c4dm.eecs.qmul.ac.uk/">C4DM-QMUL</a>, funded by <a href="https://www.abrsm.org/">ABRSM</a>.</p>
+                    <p>I also worked on multi-instrument automatic music transcription at C4DM in collaboration with Huawei. Previously, I was a research scientist at <a href="https://www.cochl.ai/">Cochlear.ai</a>, and a researcher at Seoul National University’s Institute for Industrial Systems Innovation and <a href="http://marg.snu.ac.kr/">Music and Audio Research Group</a>.</p>
+                    <div class="interests"><h3 class="label">Current research interests</h3><ul>
+                        <li>Multimodal music performance assessment and feedback</li>
+                        <li>Generative music models that interact with humans through symbolic prompts</li>
+                        <li>Music understanding LLMs</li>
+                    </ul></div>
+                </div>
+            </div>
+        </section>
+        <section class="section work" id="work" aria-labelledby="work-title">
+            <div class="wrap">
+                <div class="work-heading"><div class="section-title"><span class="label">02 / Portfolio</span><h2 id="work-title">Selected work.</h2></div><p>From understanding sound to making music.<br>Explore the research and try the demos.</p></div>
+                <details class="project" name="projects" open>
+                    <summary class="project-summary">
+                        <div><h3>SpanSynth-Edit</h3><span class="label">MIDI-guided synthesis & editing</span></div>
+                        <span class="project-toggle" aria-hidden="true"></span>
+                    </summary>
+                    <div class="project-body">
+                        <div class="project-copy">
+                            <span class="pill label">Latest work</span>
+                            <p>Synthesise and edit multi-instrument audio with MIDI. Change selected musical details while preserving the surrounding audio.</p>
+                            <a class="button" href="https://mimbres.github.io/spansynth-edit/">Explore & listen <span class="button-arrow" aria-hidden="true">↗</span></a>
+                        </div>
+                        <div class="project-art">
+                            <span class="label">Edit the notes. Keep the rest.</span>
+                            <div class="art-panel">
+                                <svg viewBox="0 0 350 226" role="img" aria-labelledby="span-art-title span-art-desc">
+                                    <title id="span-art-title">MIDI-guided audio editing</title>
+                                    <desc id="span-art-desc">A conceptual piano roll above an audio waveform. The same yellow time span is highlighted in both: only that part of the audio is regenerated, while the surrounding audio is preserved.</desc>
+                                    <text x="14" y="19">MIDI</text>
+                                    <path d="M0 28H350M0 52H350M0 76H350M0 100H350M0 124H350M50 28V124M100 28V124M150 28V124M200 28V124M250 28V124M300 28V124" fill="none" stroke="#222524" stroke-opacity=".13"/>
+                                    <!-- Both views share the same horizontal time coordinates. -->
+                                    <g fill="#ffe16b" opacity=".65">
+                                        <rect x="171" y="28" width="88" height="96"/>
+                                        <rect x="171" y="157" width="88" height="69"/>
+                                    </g>
+                                    <g fill="#edc0cf" stroke="#222524" stroke-width="1.5">
+                                        <rect x="18" y="80" width="58" height="13" rx="3"/>
+                                        <rect x="79" y="57" width="41" height="13" rx="3"/>
+                                        <rect x="123" y="45" width="38" height="13" rx="3"/>
+                                        <rect x="175" y="33" width="42" height="13" rx="3"/>
+                                        <rect x="223" y="45" width="33" height="13" rx="3"/>
+                                        <rect x="265" y="68" width="65" height="13" rx="3"/>
+                                    </g>
+                                    <g fill="#83cbc5" stroke="#222524" stroke-width="1.5">
+                                        <rect x="18" y="108" width="101" height="11" rx="3"/>
+                                        <rect x="123" y="95" width="94" height="11" rx="3"/>
+                                        <rect x="223" y="108" width="107" height="11" rx="3"/>
+                                    </g>
+                                    <text x="14" y="146">AUDIO</text>
+                                    <text x="180" y="146">EDITED</text>
+                                    <path d="M0 157H350" stroke="#222524" stroke-opacity=".18"/>
+                                    <path d="M171 28V226M259 28V226" stroke="#222524" stroke-dasharray="3 4" stroke-opacity=".45"/>
+                                    <path d="M12 190H20L25 181L30 201L35 172L40 208L45 185L50 196L55 190H69L74 179L79 202L84 168L89 211L94 180L99 201L104 190H118L123 182L128 200L133 175L138 207L143 184L148 197L153 190H168L173 180L178 204L183 171L188 212L193 165L198 216L203 177L208 205L213 183L218 199L223 169L228 213L233 174L238 206L243 182L248 198L253 187L258 190H270L275 179L280 202L285 173L290 208L295 183L300 197L305 190H315L320 183L325 198L330 188L335 193L340 190" fill="none" stroke="#222524" stroke-width="2" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <p class="art-note">Yellow marks the regenerated audio span.</p>
+                        </div>
+                    </div>
+                </details>
+                <details class="project" name="projects">
+                    <summary class="project-summary">
+                        <div><h3>ImprovNet</h3><span class="label">Controllable musical improvisation</span></div>
+                        <span class="project-toggle" aria-hidden="true"></span>
+                    </summary>
+                    <div class="project-body">
+                        <div class="project-copy">
+                            <p>Generate musical improvisations through iterative refinement. Explore style transfer, harmonisation, continuation, and infilling, with control over how much the music changes.</p>
+                            <a class="button" href="https://keshavbhandari.github.io/portfolio/improvnet.html">Explore & listen <span class="button-arrow" aria-hidden="true">↗</span></a>
+                        </div>
+                        <div class="project-art improv">
+                            <span class="label">One melody. New possibilities.</span>
+                            <div class="art-panel">
+                                <svg viewBox="0 0 350 226" role="img" aria-labelledby="improv-art-title improv-art-desc">
+                                    <title id="improv-art-title">Controllable musical improvisation</title>
+                                    <desc id="improv-art-desc">An illustrative melody is refined into an improvisation with varied notes and rhythms, retaining a connection to the original phrase.</desc>
+                                    <text x="16" y="22">ORIGINAL MELODY</text>
+                                    <path d="M16 40H334M16 60H334M16 80H334M16 155H334M16 175H334M16 195H334" stroke="#222524" stroke-opacity=".13"/>
+                                    <g fill="#edc0cf" stroke="#222524" stroke-width="1.5">
+                                        <rect x="22" y="63" width="48" height="13" rx="3"/>
+                                        <rect x="82" y="44" width="44" height="13" rx="3"/>
+                                        <rect x="139" y="33" width="68" height="13" rx="3"/>
+                                        <rect x="221" y="45" width="43" height="13" rx="3"/>
+                                        <rect x="278" y="62" width="50" height="13" rx="3"/>
+                                    </g>
+                                    <path d="M171 89V115M165 108L171 115L177 108" fill="none" stroke="#222524" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <rect x="193" y="91" width="108" height="25" rx="12" fill="#ffe16b" stroke="#222524" stroke-width="1.5"/>
+                                    <text x="208" y="107">REFINEMENT</text>
+                                    <text x="16" y="142">IMPROVISATION</text>
+                                    <g fill="#83cbc5" stroke="#222524" stroke-width="1.5">
+                                        <rect x="22" y="179" width="33" height="13" rx="3"/>
+                                        <rect x="60" y="168" width="17" height="13" rx="3"/>
+                                        <rect x="85" y="156" width="41" height="13" rx="3"/>
+                                        <rect x="139" y="148" width="43" height="13" rx="3"/>
+                                        <rect x="188" y="160" width="19" height="13" rx="3"/>
+                                        <rect x="221" y="171" width="20" height="13" rx="3"/>
+                                        <rect x="247" y="158" width="18" height="13" rx="3"/>
+                                        <rect x="278" y="179" width="50" height="13" rx="3"/>
+                                    </g>
+                                    <path d="M22 211H328" stroke="#222524" stroke-dasharray="2 6" stroke-opacity=".3"/>
+                                </svg>
+                            </div>
+                            <p class="art-note">Vary the style, phrasing, and degree of change.</p>
+                        </div>
+                    </div>
+                </details>
+                <details class="project" name="projects">
+                    <summary class="project-summary">
+                        <div><h3>YourMT3+</h3><span class="label">Multi-instrument music transcription</span></div>
+                        <span class="project-toggle" aria-hidden="true"></span>
+                    </summary>
+                    <div class="project-body">
+                        <div class="project-copy">
+                            <p>Turn a recording into multi-instrument MIDI. Transcribe notes and instrument parts from audio, then explore the result in the interactive demo.</p>
+                            <a class="button" href="https://huggingface.co/spaces/mimbres/YourMT3">Try the demo <span class="button-arrow" aria-hidden="true">↗</span></a>
+                        </div>
+                        <div class="project-art transcription">
+                            <span class="label">Hear the music. See the notes.</span>
+                            <div class="art-panel">
+                                <svg viewBox="0 0 350 226" role="img" aria-labelledby="mt3-art-title mt3-art-desc">
+                                    <title id="mt3-art-title">Audio to multi-instrument MIDI</title>
+                                    <desc id="mt3-art-desc">A conceptual audio waveform becomes separate MIDI note tracks for piano, guitar, and drums.</desc>
+                                    <text x="16" y="22">AUDIO IN</text>
+                                    <path d="M20 53H32L36 43L40 65L44 33L48 73L52 44L56 62L60 53H75L79 39L83 69L87 32L91 74L95 44L99 62L103 53H120L124 42L128 65L132 34L136 72L140 46L144 59L148 53H165L169 40L173 68L177 31L181 75L185 43L189 63L193 53H210L214 43L218 65L222 34L226 72L230 47L234 61L238 53H255L259 42L263 64L267 37L271 68L275 47L279 60L283 53H300L304 45L308 61L312 49L316 57L320 53H330" fill="none" stroke="#222524" stroke-width="2" stroke-linejoin="round"/>
+                                    <path d="M175 83V105M169 99L175 105L181 99" fill="none" stroke="#222524" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <text x="16" y="122">MIDI OUT</text>
+                                    <g stroke="#222524" stroke-opacity=".13"><path d="M86 135H334M86 165H334M86 195H334M86 220H334M130 132V220M180 132V220M230 132V220M280 132V220"/></g>
+                                    <text x="16" y="152">PIANO</text><text x="16" y="183">GUITAR</text><text x="16" y="213">DRUMS</text>
+                                    <g fill="#edc0cf" stroke="#222524" stroke-width="1.5">
+                                        <rect x="90" y="140" width="40" height="13" rx="3"/>
+                                        <rect x="140" y="140" width="33" height="13" rx="3"/>
+                                        <rect x="187" y="140" width="55" height="13" rx="3"/>
+                                        <rect x="254" y="140" width="74" height="13" rx="3"/>
+                                    </g>
+                                    <g fill="#b9d8ec" stroke="#222524" stroke-width="1.5">
+                                        <rect x="90" y="171" width="82" height="13" rx="3"/>
+                                        <rect x="187" y="171" width="42" height="13" rx="3"/>
+                                        <rect x="241" y="171" width="36" height="13" rx="3"/>
+                                        <rect x="288" y="171" width="40" height="13" rx="3"/>
+                                    </g>
+                                    <g fill="#ffe16b" stroke="#222524" stroke-width="1.5">
+                                        <rect x="90" y="201" width="12" height="13" rx="2"/>
+                                        <rect x="124" y="201" width="12" height="13" rx="2"/>
+                                        <rect x="158" y="201" width="12" height="13" rx="2"/>
+                                        <rect x="192" y="201" width="12" height="13" rx="2"/>
+                                        <rect x="226" y="201" width="12" height="13" rx="2"/>
+                                        <rect x="260" y="201" width="12" height="13" rx="2"/>
+                                        <rect x="294" y="201" width="12" height="13" rx="2"/>
+                                    </g>
+                                </svg>
+                            </div>
+                            <p class="art-note">From an audio mixture to instrument-labelled notes.</p>
+                        </div>
+                    </div>
+                </details>
+                <details class="project" name="projects">
+                    <summary class="project-summary">
+                        <div><h3>Neural Audio Fingerprint</h3><span class="label">Audio retrieval with contrastive learning</span></div>
+                        <span class="project-toggle" aria-hidden="true"></span>
+                    </summary>
+                    <div class="project-body">
+                        <div class="project-copy">
+                            <p>Find a matching recording from a short audio excerpt. Learn compact audio representations for retrieval, including when the query contains noise or other changes.</p>
+                            <a class="button" href="https://mimbres.github.io/neural-audio-fp/">Explore the project <span class="button-arrow" aria-hidden="true">↗</span></a>
+                        </div>
+                        <div class="project-art retrieval">
+                            <span class="label">A little sound. Find the recording.</span>
+                            <div class="art-panel">
+                                <svg viewBox="0 0 350 226" role="img" aria-labelledby="retrieval-art-title retrieval-art-desc">
+                                    <title id="retrieval-art-title">Finding a matching recording</title>
+                                    <desc id="retrieval-art-desc">A short query waveform is compared with a collection of recordings. The matching recording is highlighted in yellow.</desc>
+                                    <text x="16" y="22">QUERY AUDIO</text>
+                                    <rect x="85" y="32" width="180" height="50" rx="10" fill="#edc0cf" stroke="#222524" stroke-width="1.5"/>
+                                    <path d="M102 57H118L124 47L130 66L136 40L142 74L148 48L154 65L160 57H176L182 46L188 69L194 42L200 71L206 50L212 63L218 57H246" fill="none" stroke="#222524" stroke-width="2" stroke-linejoin="round"/>
+                                    <path d="M175 82V117M62 117H288M62 117V132M175 117V132M288 117V132" fill="none" stroke="#222524" stroke-width="1.5"/>
+                                    <g stroke="#222524" stroke-width="1.5">
+                                        <rect x="18" y="133" width="88" height="70" rx="9" fill="#cbe6f5"/>
+                                        <rect x="131" y="133" width="88" height="70" rx="9" fill="#ffe16b"/>
+                                        <rect x="244" y="133" width="88" height="70" rx="9" fill="#bfdac2"/>
+                                    </g>
+                                    <g fill="none" stroke="#222524" stroke-width="1.7" stroke-linejoin="round">
+                                        <path d="M29 171H37L41 162L45 179L49 165L53 176L57 171H63L67 158L71 183L75 164L79 177L83 171H95"/>
+                                        <path d="M141 171H149L152 166L155 176L158 163L161 180L164 167L167 175L170 171H178L181 165L184 177L187 164L190 178L193 167L196 174L199 171H209"/>
+                                        <path d="M255 171H267L271 155L275 187L279 159L283 182L287 171H299L303 164L307 179L311 167L315 175L319 171H322"/>
+                                    </g>
+                                    <text x="29" y="151">01</text><text x="142" y="151">02</text><text x="255" y="151">03</text>
+                                    <path d="M196 146L200 150L207 141" fill="none" stroke="#222524" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <text x="151" y="218">MATCH</text>
+                                </svg>
+                            </div>
+                            <p class="art-note">Match an excerpt to its source recording.</p>
+                        </div>
+                    </div>
+                </details>
+            </div>
+        </section>
+        <section class="section links" id="links" aria-labelledby="links-title">
+            <div class="wrap">
+                <div class="links-grid"><div class="section-title"><span class="label">03 / Elsewhere</span><h2 id="links-title">Let’s stay in touch.</h2></div><div class="links-actions">
+                    <a class="button" href="sungkyun_chang_cv2026.pdf">CV <span class="button-arrow" aria-hidden="true">↗</span></a>
+                    <a class="button" href="https://scholar.google.com/citations?user=UT4zjiMAAAAJ&hl=en">Google Scholar <span class="button-arrow" aria-hidden="true">↗</span></a>
+                    <a class="button primary" href="mailto:sungkyun.chang@qmul.ac.uk">Say hello <span class="button-arrow" aria-hidden="true">↗</span></a>
+                </div></div>
+                <footer class="footer label"><span>Sungkyun Chang · ML for music and audio</span><a href="#top">Back to top ↑</a></footer>
+            </div>
+        </section>
+    </main>
+    <script>
+        // Keep the selected heading visible when a preceding project closes.
+        document.querySelectorAll('.project-summary').forEach(summary => {
+            summary.addEventListener('click', () => requestAnimationFrame(() => {
+                if (summary.parentElement.open && summary.getBoundingClientRect().top < 24) {
+                    summary.scrollIntoView({ block: 'start', behavior: 'instant' });
+                }
+            }));
+        });
 
-
-        <h5><em>ML for music and audio</em></h5> 
-        <img src="sungkyun_animation.gif"> 
-        <p>I am currently working as a research assistant on the “Automatic Music Performance Assessment & Feedback” project at the <a href="https://c4dm.eecs.qmul.ac.uk/">C4DM-QMUL</a> funded by <a href="https://www.abrsm.org/">ABRSM</a>. I also worked on the Multi-instrument Automatic Music Transcription (AMT) project at the C4DM, in collaboration with Huawei. Prior to that, I worked as a research scientist at <a href="https://www.cochl.ai/">Cochlear.ai</a> for several years. I also worked as a researcher at Seoul National University's Institute for Industrial Systems Innovation, and Music and Audio Research Group (<a href="http://marg.snu.ac.kr/">SNU-MARG</a>).</p>
-
-        <p><strong>Current Research Interests:</strong></p>
-        <ul>
-            <li>Multimodal approach to music performance assessment and feedback</li>
-            <li>A generative music model that interacts with humans through symbolic prompts</li>
-            <li>Music understanding LLMs</li>
-        </ul>  
-  
-        <p><br></p>
-        <!-- <img src="https://i.imgur.com/2ZbEswv.png">  -->
-        <h3><a href="https://mimbres.github.io/spansynth-edit/">SpanSynth-Edit </a></h2> 
-        <h3><a href="https://keshavbhandari.github.io/portfolio/improvnet.html">ImprovNet</a></h2>    
-        <h3><a href="https://huggingface.co/spaces/mimbres/YourMT3">YourMT3+</a></h2>  
-        <h3><a href="../neural-audio-fp/">Neural Audio Fingerprint</a></h2>
-        <p><br></p>
-        <h4>
-          <a href="sungkyun_chang_cv2026.pdf">CV</a> | 
-          <a href="https://scholar.google.com/citations?user=UT4zjiMAAAAJ&hl=en">Google Scholar</a> | 
-          <a href="mailto:sungkyun.chang@qmul.ac.uk">Contact</a>
-        </h4>
-      </section>
-    </div>
+        // Keep the artwork still when the visitor requests less motion.
+        const artwork = document.getElementById('music-art');
+        const still = document.getElementById('still-art');
+        const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+        async function updateArtwork() {
+            if (!artwork.complete || !artwork.naturalWidth) return;
+            if (motionPreference.matches) {
+                try {
+                    await artwork.decode();
+                } catch {
+                    return;
+                }
+                if (!motionPreference.matches) return;
+                const canvas = document.createElement('canvas');
+                canvas.width = artwork.naturalWidth;
+                canvas.height = artwork.naturalHeight;
+                const context = canvas.getContext('2d');
+                if (!context) return;
+                context.drawImage(artwork, 0, 0);
+                still.src = canvas.toDataURL('image/png');
+                still.hidden = false;
+                artwork.hidden = true;
+            } else {
+                artwork.hidden = false;
+                still.hidden = true;
+            }
+        }
+        artwork.addEventListener('load', updateArtwork);
+        motionPreference.addEventListener('change', updateArtwork);
+        updateArtwork();
+    </script>
 </body>
 </html>
