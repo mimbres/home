@@ -105,6 +105,7 @@
         .project-copy { display: flex; flex-direction: column; justify-content: center; align-items: start; padding: 32px; }
         .project-copy .pill { background: var(--yellow); font-size: 10px; letter-spacing: 1px; padding: 5px 11px; margin-bottom: 18px; }
         .project-copy p { margin-bottom: 25px; font-size: 16px; line-height: 1.65; max-width: 390px; }
+        .project-actions { display: flex; flex-wrap: wrap; gap: 16px; }
         .project-art { display: flex; flex-direction: column; justify-content: center; gap: 15px; padding: 26px 32px; border-left: var(--line); background: #b9d8ec; }
         .project-art.score { background: #d8d1ec; }
         .project-art.improv { background: #e2c9dc; }
@@ -238,7 +239,10 @@
                         <div class="project-copy">
                             <span class="pill label">Latest work</span>
                             <p>Synthesise and edit multi-instrument audio with MIDI. Change selected musical details while preserving the surrounding audio.</p>
-                            <a class="button" href="https://mimbres.github.io/spansynth-edit/">Explore & listen <span class="button-arrow" aria-hidden="true">↗</span></a>
+                            <div class="project-actions">
+                                <a class="button" href="https://mimbres.github.io/spansynth-edit/">Explore & listen <span class="button-arrow" aria-hidden="true">↗</span></a>
+                                <a class="button" href="https://docs.google.com/videos/d/1yTIDgek5XCtfYD5aXqEa0lJ00ZS4cv3f91A4ec-yJss/play#scene=id.h2c79e0ff09f7bbfc_0_1">Slides <span class="button-arrow" aria-hidden="true">↗</span></a>
+                            </div>
                         </div>
                         <div class="project-art">
                             <span class="label">Edit the notes. Keep the rest.</span>
