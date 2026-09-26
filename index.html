@@ -106,6 +106,7 @@
         .project-copy .pill { background: var(--yellow); font-size: 10px; letter-spacing: 1px; padding: 5px 11px; margin-bottom: 18px; }
         .project-copy p { margin-bottom: 25px; font-size: 16px; line-height: 1.65; max-width: 390px; }
         .project-art { display: flex; flex-direction: column; justify-content: center; gap: 15px; padding: 26px 32px; border-left: var(--line); background: #b9d8ec; }
+        .project-art.score { background: #d8d1ec; }
         .project-art.improv { background: #e2c9dc; }
         .project-art.transcription { background: #bfdac2; }
         .project-art.retrieval { background: #cbd3ea; }
@@ -215,7 +216,7 @@
                     <p>Exploring how machines can understand music and support musical creativity.</p>
                 </div>
                 <div class="bio-copy">
-                    <p>I am a doctoral researcher working on the <strong>Automatic Music Performance Assessment & Feedback</strong> project at <a href="https://c4dm.eecs.qmul.ac.uk/">C4DM-QMUL</a>, funded by <a href="https://www.abrsm.org/">ABRSM</a>.</p>
+                    <p>I am a doctoral researcher working on the <strong>Automatic Music Performance Assessment & Feedback</strong> project at <a href="https://c4dm.eecs.qmul.ac.uk/">C4DM-QMUL</a>, funded by <a href="https://www.abrsm.org/">ABRSM</a>. I am supervised by <a href="https://www.seresearch.qmul.ac.uk/cmai/people/sdixon/">Simon Dixon</a> and <a href="https://www.qmul.ac.uk/eecs/people/profiles/benetosemmanouil.html">Emmanouil Benetos</a>.</p>
                     <p>I also worked on multi-instrument automatic music transcription at C4DM in collaboration with Huawei. Previously, I was a research scientist at <a href="https://www.cochl.ai/">Cochlear.ai</a>, and a researcher at Seoul National University’s Institute for Industrial Systems Innovation and <a href="http://marg.snu.ac.kr/">Music and Audio Research Group</a>.</p>
                     <div class="interests"><h3 class="label">Current research interests</h3><ul>
                         <li>Multimodal music performance assessment and feedback</li>
@@ -273,6 +274,51 @@
                                 </svg>
                             </div>
                             <p class="art-note">Yellow marks the regenerated audio span.</p>
+                        </div>
+                    </div>
+                </details>
+                <details class="project" name="projects">
+                    <summary class="project-summary">
+                        <div><h3>Text2Score</h3><span class="label">Sheet music generation from text</span></div>
+                        <span class="project-toggle" aria-hidden="true"></span>
+                    </summary>
+                    <div class="project-body">
+                        <div class="project-copy">
+                            <p>Generate sheet music from natural language prompts. A planning stage sets out the instrumentation, harmony, and musical structure, then a generative model turns that plan into a score.</p>
+                            <a class="button" href="https://keshavbhandari.github.io/portfolio/text2score">Explore the scores <span class="button-arrow" aria-hidden="true">↗</span></a>
+                        </div>
+                        <div class="project-art score">
+                            <span class="label">From words to a musical score.</span>
+                            <div class="art-panel">
+                                <svg viewBox="0 0 350 226" role="img" aria-labelledby="score-art-title score-art-desc">
+                                    <title id="score-art-title">Text to plan to sheet music</title>
+                                    <desc id="score-art-desc">An illustrative prompt for a gentle piano piece in 3/4 becomes a musical plan, then a score with notes on staves.</desc>
+                                    <text x="16" y="20">TEXT PROMPT</text>
+                                    <rect x="16" y="30" width="318" height="43" rx="10" fill="#cbe6f5" stroke="#222524" stroke-width="1.5"/>
+                                    <text x="29" y="56">A gentle piano piece in 3/4.</text>
+                                    <path d="M67 78V100M61 94L67 100L73 94M122 151H147M141 145L147 151L141 157" fill="none" stroke="#222524" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <rect x="16" y="107" width="101" height="99" rx="10" fill="#ffe16b" fill-opacity=".65" stroke="#222524" stroke-width="1.5"/>
+                                    <text x="28" y="128">PLAN</text>
+                                    <text x="28" y="151">Piano</text>
+                                    <text x="28" y="171">3/4 time</text>
+                                    <text x="28" y="191">Soft</text>
+                                    <rect x="155" y="85" width="179" height="132" rx="8" fill="#faf5e9" stroke="#222524" stroke-width="1.5"/>
+                                    <text x="171" y="105">SCORE</text>
+                                    <path d="M168 123H323M168 131H323M168 139H323M168 147H323M168 155H323M168 170H323M168 178H323M168 186H323M168 194H323M168 202H323M323 123V155M323 170V202" fill="none" stroke="#222524" stroke-opacity=".35"/>
+                                    <text x="174" y="136">3</text><text x="174" y="149">4</text>
+                                    <text x="174" y="183">3</text><text x="174" y="196">4</text>
+                                    <g fill="#222524">
+                                        <ellipse cx="215" cy="147" rx="5" ry="3.5" transform="rotate(-20 215 147)"/>
+                                        <ellipse cx="257" cy="139" rx="5" ry="3.5" transform="rotate(-20 257 139)"/>
+                                        <ellipse cx="299" cy="151" rx="5" ry="3.5" transform="rotate(-20 299 151)"/>
+                                        <ellipse cx="215" cy="194" rx="5" ry="3.5" transform="rotate(-20 215 194)"/>
+                                        <ellipse cx="257" cy="186" rx="5" ry="3.5" transform="rotate(-20 257 186)"/>
+                                        <ellipse cx="299" cy="178" rx="5" ry="3.5" transform="rotate(-20 299 178)"/>
+                                    </g>
+                                    <path d="M219 147V124M261 139V116M303 151V128M219 194V171M261 186V163M303 178V155" fill="none" stroke="#222524" stroke-width="1.8"/>
+                                </svg>
+                            </div>
+                            <p class="art-note">Describe the music. Plan its structure. Generate the score.</p>
                         </div>
                     </div>
                 </details>
@@ -378,35 +424,60 @@
                     </summary>
                     <div class="project-body">
                         <div class="project-copy">
-                            <p>Find a matching recording from a short audio excerpt. Learn compact audio representations for retrieval, including when the query contains noise or other changes.</p>
+                            <p>Identify a recording from a short, noisy excerpt. Contrastive learning brings representations of the same audio closer together, enabling retrieval from a database of compact fingerprint vectors.</p>
                             <a class="button" href="https://mimbres.github.io/neural-audio-fp/">Explore the project <span class="button-arrow" aria-hidden="true">↗</span></a>
                         </div>
                         <div class="project-art retrieval">
-                            <span class="label">A little sound. Find the recording.</span>
+                            <span class="label">Search by audio fingerprint.</span>
                             <div class="art-panel">
                                 <svg viewBox="0 0 350 226" role="img" aria-labelledby="retrieval-art-title retrieval-art-desc">
-                                    <title id="retrieval-art-title">Finding a matching recording</title>
-                                    <desc id="retrieval-art-desc">A short query waveform is compared with a collection of recordings. The matching recording is highlighted in yellow.</desc>
+                                    <title id="retrieval-art-title">Audio fingerprint vector search</title>
+                                    <desc id="retrieval-art-desc">A query excerpt becomes a compact vector, illustrated with a fingerprint and shaded cells. A similarity search retrieves matching recording B from a database of vectors. Its row is highlighted in yellow.</desc>
                                     <text x="16" y="22">QUERY AUDIO</text>
-                                    <rect x="85" y="32" width="180" height="50" rx="10" fill="#edc0cf" stroke="#222524" stroke-width="1.5"/>
-                                    <path d="M102 57H118L124 47L130 66L136 40L142 74L148 48L154 65L160 57H176L182 46L188 69L194 42L200 71L206 50L212 63L218 57H246" fill="none" stroke="#222524" stroke-width="2" stroke-linejoin="round"/>
-                                    <path d="M175 82V117M62 117H288M62 117V132M175 117V132M288 117V132" fill="none" stroke="#222524" stroke-width="1.5"/>
-                                    <g stroke="#222524" stroke-width="1.5">
-                                        <rect x="18" y="133" width="88" height="70" rx="9" fill="#cbe6f5"/>
-                                        <rect x="131" y="133" width="88" height="70" rx="9" fill="#ffe16b"/>
-                                        <rect x="244" y="133" width="88" height="70" rx="9" fill="#bfdac2"/>
+                                    <rect x="16" y="35" width="112" height="38" rx="9" fill="#cbe6f5" stroke="#222524" stroke-width="1.5"/>
+                                    <path d="M25 54H34L38 47L42 62L46 42L50 66L54 49L58 59L62 54H72L76 45L80 64L84 44L88 63L92 48L96 58L100 54H119" fill="none" stroke="#222524" stroke-width="1.8" stroke-linejoin="round"/>
+                                    <path d="M72 78V94M67 89L72 94L77 89" fill="none" stroke="#222524" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <rect x="16" y="101" width="112" height="102" rx="10" fill="#edc0cf" stroke="#222524" stroke-width="1.5"/>
+                                    <text x="25" y="119">FINGERPRINT</text>
+                                    <g fill="none" stroke="#222524" stroke-width="1.5" stroke-linecap="round">
+                                        <path d="M51 157V147C51 122 93 122 93 147V159"/>
+                                        <path d="M57 163V147C57 130 87 130 87 147V161"/>
+                                        <path d="M63 165V147C63 138 81 138 81 147V164"/>
+                                        <path d="M69 163V148C69 144 75 144 75 148V157C75 163 73 166 72 168"/>
                                     </g>
-                                    <g fill="none" stroke="#222524" stroke-width="1.7" stroke-linejoin="round">
-                                        <path d="M29 171H37L41 162L45 179L49 165L53 176L57 171H63L67 158L71 183L75 164L79 177L83 171H95"/>
-                                        <path d="M141 171H149L152 166L155 176L158 163L161 180L164 167L167 175L170 171H178L181 165L184 177L187 164L190 178L193 167L196 174L199 171H209"/>
-                                        <path d="M255 171H267L271 155L275 187L279 159L283 182L287 171H299L303 164L307 179L311 167L315 175L319 171H322"/>
+                                    <g fill="#222524">
+                                        <rect x="29" y="179" width="9" height="13" opacity=".8"/><rect x="40" y="179" width="9" height="13" opacity=".2"/>
+                                        <rect x="51" y="179" width="9" height="13" opacity=".5"/><rect x="62" y="179" width="9" height="13" opacity=".9"/>
+                                        <rect x="73" y="179" width="9" height="13" opacity=".3"/><rect x="84" y="179" width="9" height="13" opacity=".7"/>
+                                        <rect x="95" y="179" width="9" height="13" opacity=".4"/><rect x="106" y="179" width="9" height="13" opacity=".6"/>
                                     </g>
-                                    <text x="29" y="151">01</text><text x="142" y="151">02</text><text x="255" y="151">03</text>
-                                    <path d="M196 146L200 150L207 141" fill="none" stroke="#222524" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <text x="151" y="218">MATCH</text>
+                                    <text x="200" y="22">DATABASE</text>
+                                    <path d="M182 47V191C182 210 334 210 334 191V47" fill="#cbe6f5" stroke="#222524" stroke-width="1.5"/>
+                                    <ellipse cx="258" cy="47" rx="76" ry="13" fill="#faf5e9" stroke="#222524" stroke-width="1.5"/>
+                                    <rect x="191" y="71" width="134" height="31" rx="5" fill="#faf5e9" stroke="#222524" stroke-opacity=".3"/>
+                                    <rect x="191" y="114" width="134" height="45" rx="6" fill="#ffe16b" stroke="#222524" stroke-width="1.5"/>
+                                    <rect x="191" y="171" width="134" height="25" rx="5" fill="#faf5e9" stroke="#222524" stroke-opacity=".3"/>
+                                    <text x="199" y="91">A</text><text x="199" y="141">B</text><text x="199" y="188">C</text>
+                                    <g fill="#222524">
+                                        <rect x="215" y="79" width="9" height="13" opacity=".2"/><rect x="226" y="79" width="9" height="13" opacity=".7"/>
+                                        <rect x="237" y="79" width="9" height="13" opacity=".9"/><rect x="248" y="79" width="9" height="13" opacity=".3"/>
+                                        <rect x="259" y="79" width="9" height="13" opacity=".6"/><rect x="270" y="79" width="9" height="13" opacity=".4"/>
+                                        <rect x="281" y="79" width="9" height="13" opacity=".8"/><rect x="292" y="79" width="9" height="13" opacity=".2"/>
+                                        <rect x="215" y="130" width="9" height="13" opacity=".75"/><rect x="226" y="130" width="9" height="13" opacity=".25"/>
+                                        <rect x="237" y="130" width="9" height="13" opacity=".5"/><rect x="248" y="130" width="9" height="13" opacity=".85"/>
+                                        <rect x="259" y="130" width="9" height="13" opacity=".35"/><rect x="270" y="130" width="9" height="13" opacity=".7"/>
+                                        <rect x="281" y="130" width="9" height="13" opacity=".4"/><rect x="292" y="130" width="9" height="13" opacity=".6"/>
+                                        <rect x="215" y="177" width="9" height="13" opacity=".6"/><rect x="226" y="177" width="9" height="13" opacity=".9"/>
+                                        <rect x="237" y="177" width="9" height="13" opacity=".3"/><rect x="248" y="177" width="9" height="13" opacity=".5"/>
+                                        <rect x="259" y="177" width="9" height="13" opacity=".8"/><rect x="270" y="177" width="9" height="13" opacity=".2"/>
+                                        <rect x="281" y="177" width="9" height="13" opacity=".5"/><rect x="292" y="177" width="9" height="13" opacity=".9"/>
+                                    </g>
+                                    <text x="135" y="126" style="font-size: 9px">SEARCH</text>
+                                    <path d="M134 138H184M177 132L184 138L177 144M307 136L311 140L319 131" fill="none" stroke="#222524" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <text x="16" y="220">MATCH BY VECTOR SIMILARITY</text>
                                 </svg>
                             </div>
-                            <p class="art-note">Match an excerpt to its source recording.</p>
+                            <p class="art-note">Versions of the same audio stay close in the learned representation.</p>
                         </div>
                     </div>
                 </details>
