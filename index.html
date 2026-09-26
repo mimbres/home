@@ -79,9 +79,11 @@
         .remote-rays { opacity: 0; }
         @media (prefers-reduced-motion: no-preference) {
             .remote-button:not([hidden]) { animation: remote-appear 240ms ease-out both; }
+            .remote-button.is-sending svg { animation: remote-press 240ms ease-out; }
             .remote-button.is-sending .remote-rays { animation: remote-signal 720ms ease-out; }
         }
         @keyframes remote-appear { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes remote-press { 50% { transform: rotate(var(--remote-angle)) scale(.92); } }
         @keyframes remote-signal { 0%, 100% { opacity: 0; } 20%, 65% { opacity: 1; } }
         .tagline { font-size: clamp(26px, 3vw, 36px); line-height: 1.2; font-weight: 700; letter-spacing: -1px; }
         .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 22px; margin-top: 30px; }
@@ -604,18 +606,18 @@
         const remote = document.getElementById('tv-remote');
         tvScreen.classList.add('tv-off');
 
-        // Reveal the remote once the name has finished typing.
+        // Turn on the TV automatically as soon as the name finishes typing.
         const typing = document.querySelector('.name').getAnimations({ subtree: true });
         Promise.allSettled(typing.map(animation => animation.finished)).then(() => {
             remote.hidden = false;
+            setPower(true);
         });
 
         function finishPowerOn() {
             tvScreen.classList.remove('tv-starting');
             remote.classList.remove('is-sending');
         }
-        remote.addEventListener('click', () => {
-            const turningOn = tvScreen.classList.contains('tv-off');
+        function setPower(turningOn) {
             finishPowerOn();
             tvScreen.classList.toggle('tv-off', !turningOn);
             remote.setAttribute('aria-pressed', String(turningOn));
@@ -624,7 +626,8 @@
                 tvScreen.classList.add('tv-starting');
                 remote.classList.add('is-sending');
             }
-        });
+        }
+        remote.addEventListener('click', () => setPower(tvScreen.classList.contains('tv-off')));
         tvScreen.addEventListener('animationend', event => {
             if (event.animationName === 'tv-picture-on') finishPowerOn();
         });
